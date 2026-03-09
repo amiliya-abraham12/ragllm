@@ -1,0 +1,10 @@
+{
+    "site_package_search_strategy": "pep503",
+    "source_directories": ["."],
+    "search_path": [
+        "ragvenv/Lib/site-packages"
+    ],
+    "exclude": [
+        "ragvenv"
+    ]
+}

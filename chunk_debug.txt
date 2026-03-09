@@ -1,0 +1,27 @@
+﻿============================================================
+STORED CHUNKS
+============================================================
+
+--- Chunk 1 (Page 1) ---
+Norms for Inter College Transfer (B.Tech 2019 Regulations) 1. Inter college transfer shall be applicable only for regular B. Tech students. 2. The transfer shall be permitted just before the commencement of third semester. 3. The transfer shall be with effect from the first working day of the third semester. 4. The transfer shall be only within the sanctioned strength of the receiving college. 5. The following Category of students shall not be eligible for inter college transfer I. Govt. of India Nominee. II. Management Quota in Aided colleges. III. Management Quota in private Self Financing C
+...
+[Length: 2316 chars]
+
+--- Chunk 2 (Page 2) ---
+Step 2 : The principal of college A may or may not recommend the transfer. Once recommended, the recommendation cannot be reversed and hence the Principal of college A has to relieve the student, if the student gets the transfer to college B. Step 3: The Principal of college B shall publish the number of students that can be admitted based on the availability of vacant seats and based on the norms published by the University. Step 4 : Principal A relieves the student if he/she is selected by college B with necessary entries in the KTU portal. Step 5: Principal B admits the student in College B
+...
+[Length: 1083 chars]
+
+--- Chunk 3 (Page 3) ---
+APJ ABDUL KALAM TECHNOLOGICAL UNIVERSITY PROFORMA FOR INTERCOLLEGIATE TRANSFER B.Tech S3 (B.Tech 2019 Regulations) ( To be Submitted to the present and opted colleges) 1. Name of Student : 2. KTU Student ID : 3. a) College of Present Study : b) Branch of Study and semester: c) Type of Institution: Goverment Government Aided Self Financing 4. Details of College to which transfer is sought a) Name of the College : b) Nature of affiliation: Government Government Aided Self-Financing 5. Do you belong to any of the following category? Govt. of India Nominee Management Quota in Aided Colleges Manage
+...
+[Length: 1102 chars]
+
+--- Chunk 4 (Page 4) ---
+7. Father / GuardianÆs Name: 8. Communication Address: Email: Mobile: Land Line: Signature of Student: Signature of Guardian: 9. Recommendation from Principals College of Present Study College to which admission sought Name of College: Name of College: Recommended Not Recommended Recommended Not Recommended Remarks: Remarks: Name of Principal: Name of Principal: Signature of Principal: Signature of Principal: Date: Date: Relieved the Student: Yes Upload the data in KTU portal :Yes Signature of Principal: Date: Admitted the Student: Yes Upload the data in KTU portal :Yes Signature of Principal:
+...
+[Length: 694 chars]
+
+============================================================
+RETRIEVAL TEST
+============================================================

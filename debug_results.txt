@@ -1,0 +1,60 @@
+Total documents in collection: 127
+
+--- Top 5 ChromaDB results ---
+
+[1] Score=0.6396 Dist=0.5635 Page=3
+    Applications are invited for PhD admission (2025-26) in colleges affiliated to APJ Abdul Kalam Technological University APJ Abdul Kalam Technological University is inviting applications for Admission to its Doctor of Philosophy (PhD) program for the 
+
+[2] Score=0.6321 Dist=0.5820 Page=1
+    KTU/RESEARCH5/1066/2025 30.04.2025 NOTIFICATION Applications are invited from eligible candidates for admission to Ph.D. program for the academic year 2025–26, in colleges affiliated to APJ Abdul Kalam Technological University, Kerala. Interested can
+
+[3] Score=0.6187 Dist=0.6162 Page=37
+    B. Tech. Regulation, 2024 APJ Abdul Kalam Technological University 19 R 5.3 Communication Protocol for Student and Parent Requests: i. Students and parents are required to seek advice, clarifications, and permissions regarding academic matters from t
+
+[4] Score=0.6088 Dist=0.6426 Page=7
+    A relaxation of 5% for candidates belonging to SC/ST/OBC (belonging to Non-Creamy Layer) / EWS / Differently -abled category (with more than 40% disability -as per the certificate issued by District Medical Board) will be granted as per the UGC norms
+
+[5] Score=0.6056 Dist=0.6513 Page=5
+    4. Candidates holding degrees from foreign universities are eligible to participate in the selection process only if those universities are listed by Association of Indian Universities (AIU). 5. All full -time/part-time/Open University PG programs fr
+
+--- HybridRetriever (min_relevance=0.35) ---
+Results returned: 6
+
+[1] Score=0.8796 Page=3
+    Applications are invited for PhD admission (2025-26) in colleges affiliated to APJ Abdul Kalam Technological University APJ Abdul Kalam Technological University is inviting applications for Admission to its Doctor of Philosophy (PhD) program for the 
+
+[2] Score=0.8456 Page=5
+    4. Candidates holding degrees from foreign universities are eligible to participate in the selection process only if those universities are listed by Association of Indian Universities (AIU). 5. All full -time/part-time/Open University PG programs fr
+
+[3] Score=0.8121 Page=1
+    KTU/RESEARCH5/1066/2025 30.04.2025 NOTIFICATION Applications are invited from eligible candidates for admission to Ph.D. program for the academic year 2025–26, in colleges affiliated to APJ Abdul Kalam Technological University, Kerala. Interested can
+
+[4] Score=0.7387 Page=37
+    B. Tech. Regulation, 2024 APJ Abdul Kalam Technological University 19 R 5.3 Communication Protocol for Student and Parent Requests: i. Students and parents are required to seek advice, clarifications, and permissions regarding academic matters from t
+
+[5] Score=0.7288 Page=7
+    A relaxation of 5% for candidates belonging to SC/ST/OBC (belonging to Non-Creamy Layer) / EWS / Differently -abled category (with more than 40% disability -as per the certificate issued by District Medical Board) will be granted as per the UGC norms
+
+[6] Score=0.7148 Page=9
+    Candidates belonging to the Applied Sciences category shall attend the admission test under the respective Engineering Stream. 11. Format of questions 1. A systematic step-by-step procedure followed by logical process of reasoning is called A. Experi
+
+--- HybridRetriever (min_relevance=0.10) ---
+Results returned: 6
+
+[1] Score=0.8796 Page=3
+    Applications are invited for PhD admission (2025-26) in colleges affiliated to APJ Abdul Kalam Technological University APJ Abdul Kalam Technological University is inviting applications for Admission to its Doctor of Philosophy (PhD) program for the 
+
+[2] Score=0.8456 Page=5
+    4. Candidates holding degrees from foreign universities are eligible to participate in the selection process only if those universities are listed by Association of Indian Universities (AIU). 5. All full -time/part-time/Open University PG programs fr
+
+[3] Score=0.8121 Page=1
+    KTU/RESEARCH5/1066/2025 30.04.2025 NOTIFICATION Applications are invited from eligible candidates for admission to Ph.D. program for the academic year 2025–26, in colleges affiliated to APJ Abdul Kalam Technological University, Kerala. Interested can
+
+[4] Score=0.7387 Page=37
+    B. Tech. Regulation, 2024 APJ Abdul Kalam Technological University 19 R 5.3 Communication Protocol for Student and Parent Requests: i. Students and parents are required to seek advice, clarifications, and permissions regarding academic matters from t
+
+[5] Score=0.7288 Page=7
+    A relaxation of 5% for candidates belonging to SC/ST/OBC (belonging to Non-Creamy Layer) / EWS / Differently -abled category (with more than 40% disability -as per the certificate issued by District Medical Board) will be granted as per the UGC norms
+
+[6] Score=0.7148 Page=9
+    Candidates belonging to the Applied Sciences category shall attend the admission test under the respective Engineering Stream. 11. Format of questions 1. A systematic step-by-step procedure followed by logical process of reasoning is called A. Experi

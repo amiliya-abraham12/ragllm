@@ -1,0 +1,110 @@
+{
+  "total_docs": 127,
+  "chroma_results": [
+    {
+      "rank": 1,
+      "score": 0.6396,
+      "dist": 0.5635,
+      "page": 3,
+      "text_preview": "Applications are invited for PhD admission (2025-26) in colleges affiliated to APJ Abdul Kalam Technological University APJ Abdul Kalam Technological University is inviting applications for Admission "
+    },
+    {
+      "rank": 2,
+      "score": 0.6321,
+      "dist": 0.582,
+      "page": 1,
+      "text_preview": "KTU/RESEARCH5/1066/2025 30.04.2025 NOTIFICATION Applications are invited from eligible candidates for admission to Ph.D. program for the academic year 2025–26, in colleges affiliated to APJ Abdul Kala"
+    },
+    {
+      "rank": 3,
+      "score": 0.6187,
+      "dist": 0.6162,
+      "page": 37,
+      "text_preview": "B. Tech. Regulation, 2024 APJ Abdul Kalam Technological University 19 R 5.3 Communication Protocol for Student and Parent Requests: i. Students and parents are required to seek advice, clarifications,"
+    },
+    {
+      "rank": 4,
+      "score": 0.6088,
+      "dist": 0.6426,
+      "page": 7,
+      "text_preview": "A relaxation of 5% for candidates belonging to SC/ST/OBC (belonging to Non-Creamy Layer) / EWS / Differently -abled category (with more than 40% disability -as per the certificate issued by District M"
+    },
+    {
+      "rank": 5,
+      "score": 0.6056,
+      "dist": 0.6513,
+      "page": 5,
+      "text_preview": "4. Candidates holding degrees from foreign universities are eligible to participate in the selection process only if those universities are listed by Association of Indian Universities (AIU). 5. All f"
+    }
+  ],
+  "hybrid_035": {
+    "count": 6,
+    "results": [
+      {
+        "score": 0.8796,
+        "page": 3,
+        "text": "Applications are invited for PhD admission (2025-26) in colleges affiliated to APJ Abdul Kalam Technological University APJ Abdul Kalam Technological University is inviting applications for Admission "
+      },
+      {
+        "score": 0.8456,
+        "page": 5,
+        "text": "4. Candidates holding degrees from foreign universities are eligible to participate in the selection process only if those universities are listed by Association of Indian Universities (AIU). 5. All f"
+      },
+      {
+        "score": 0.8121,
+        "page": 1,
+        "text": "KTU/RESEARCH5/1066/2025 30.04.2025 NOTIFICATION Applications are invited from eligible candidates for admission to Ph.D. program for the academic year 2025–26, in colleges affiliated to APJ Abdul Kala"
+      },
+      {
+        "score": 0.7387,
+        "page": 37,
+        "text": "B. Tech. Regulation, 2024 APJ Abdul Kalam Technological University 19 R 5.3 Communication Protocol for Student and Parent Requests: i. Students and parents are required to seek advice, clarifications,"
+      },
+      {
+        "score": 0.7288,
+        "page": 7,
+        "text": "A relaxation of 5% for candidates belonging to SC/ST/OBC (belonging to Non-Creamy Layer) / EWS / Differently -abled category (with more than 40% disability -as per the certificate issued by District M"
+      },
+      {
+        "score": 0.7148,
+        "page": 9,
+        "text": "Candidates belonging to the Applied Sciences category shall attend the admission test under the respective Engineering Stream. 11. Format of questions 1. A systematic step-by-step procedure followed b"
+      }
+    ]
+  },
+  "hybrid_010": {
+    "count": 6,
+    "results": [
+      {
+        "score": 0.8796,
+        "page": 3,
+        "text": "Applications are invited for PhD admission (2025-26) in colleges affiliated to APJ Abdul Kalam Technological University APJ Abdul Kalam Technological University is inviting applications for Admission "
+      },
+      {
+        "score": 0.8456,
+        "page": 5,
+        "text": "4. Candidates holding degrees from foreign universities are eligible to participate in the selection process only if those universities are listed by Association of Indian Universities (AIU). 5. All f"
+      },
+      {
+        "score": 0.8121,
+        "page": 1,
+        "text": "KTU/RESEARCH5/1066/2025 30.04.2025 NOTIFICATION Applications are invited from eligible candidates for admission to Ph.D. program for the academic year 2025–26, in colleges affiliated to APJ Abdul Kala"
+      },
+      {
+        "score": 0.7387,
+        "page": 37,
+        "text": "B. Tech. Regulation, 2024 APJ Abdul Kalam Technological University 19 R 5.3 Communication Protocol for Student and Parent Requests: i. Students and parents are required to seek advice, clarifications,"
+      },
+      {
+        "score": 0.7288,
+        "page": 7,
+        "text": "A relaxation of 5% for candidates belonging to SC/ST/OBC (belonging to Non-Creamy Layer) / EWS / Differently -abled category (with more than 40% disability -as per the certificate issued by District M"
+      },
+      {
+        "score": 0.7148,
+        "page": 9,
+        "text": "Candidates belonging to the Applied Sciences category shall attend the admission test under the respective Engineering Stream. 11. Format of questions 1. A systematic step-by-step procedure followed b"
+      }
+    ]
+  }
+}

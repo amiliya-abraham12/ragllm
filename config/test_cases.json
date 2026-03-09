@@ -1,0 +1,40 @@
+{
+  "test_cases": [
+    {
+      "id": "TC001",
+      "query": "What are the eligibility criteria for inter-college transfer?",
+      "expected_keywords": ["eligibility", "transfer", "credits", "gpa"],
+      "category": "academic"
+    },
+    {
+      "id": "TC002",
+      "query": "What is the deadline for fee payment?",
+      "expected_keywords": ["deadline", "fee", "payment", "date"],
+      "category": "finance"
+    },
+    {
+      "id": "TC003",
+      "query": "What is the attendance policy?",
+      "expected_keywords": ["attendance", "minimum", "percentage"],
+      "category": "academic"
+    },
+    {
+      "id": "TC004",
+      "query": "How to apply for re-evaluation?",
+      "expected_keywords": ["re-evaluation", "application", "fee"],
+      "category": "examination"
+    },
+    {
+      "id": "TC005",
+      "query": "What are the library rules?",
+      "expected_keywords": ["library", "rules", "borrowing", "books"],
+      "category": "facilities"
+    },
+    {
+      "id": "TC006",
+      "query": "What is minimum attendance requirement?",
+      "expected_keywords": ["attendance", "75", "minimum", "required"],
+      "category": "academic"
+    }
+  ]
+}

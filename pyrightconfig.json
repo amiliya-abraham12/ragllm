@@ -1,0 +1,9 @@
+{
+    "pythonPath": "d:/ragllm/ragvenv/Scripts/python.exe",
+    "extraPaths": [
+        "d:/ragllm"
+    ],
+    "reportMissingImports": false,
+    "reportMissingModuleSource": false,
+    "typeCheckingMode": "basic"
+}
