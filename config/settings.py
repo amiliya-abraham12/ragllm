@@ -11,7 +11,7 @@ _PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 # ============================
 # MODEL PATHS
 # ============================
-MODEL_PATH = os.path.join(_PROJECT_ROOT, "models", "mistral-7b-instruct-v0.2.Q4_K_M.gguf")
+MODEL_PATH =r"D:\assist\ragllm\models\mistral-7b-instruct-v0.2.Q4_K_M.gguf" #os.path.join(_PROJECT_ROOT, "models", "mistral-7b-instruct-v0.2.Q4_K_M.gguf")
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 
 # Legacy alias (for backward compatibility)
