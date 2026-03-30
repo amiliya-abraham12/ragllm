@@ -215,7 +215,7 @@ def ask(
     
     Args:
         query: User question
-        llm: Llama model instance
+        llm: GeminiLLM model instance
         embedder: SentenceTransformer instance
         collection: ChromaDB collection
         chat_history: List of (question, answer) tuples

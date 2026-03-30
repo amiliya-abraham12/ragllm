@@ -39,18 +39,14 @@ if _cuda_dll_dirs:
 # Imports
 # -------------------------------
 import streamlit as st  # type: ignore[import]
-from llama_cpp import Llama  # type: ignore[import]
+from backend.gemini_wrapper import GeminiLLM
 from sentence_transformers import SentenceTransformer  # type: ignore[import]
 import chromadb  # type: ignore[import]
 
 from config.settings import (  # type: ignore[import]
-    MODEL_PATH,
+    GEMINI_MODEL_NAME,
     EMBEDDING_MODEL,
     DB_PATH,
-    N_CTX,
-    N_GPU_LAYERS,
-    N_THREADS,
-    N_BATCH,
     MAX_TOKENS,
     TEMPERATURE,
     TOP_P,
@@ -538,8 +534,8 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown(
-        "<small style='color:var(--text-muted)'>LlamaRAG Assist v1.0<br>"
-        "Powered by LLaMA + ChromaDB</small>",
+        "<small style='color:var(--text-muted)'>GeminiRAG Assist v1.0<br>"
+        "Powered by Gemini + ChromaDB</small>",
         unsafe_allow_html=True,
     )
 
@@ -572,30 +568,13 @@ if st.session_state.get("messages"):
 # Cached Model Loaders
 # -------------------------------
 @st.cache_resource(show_spinner="Loading AI model...")
-def load_llm(_ctx_size=N_CTX, _batch_size=N_BATCH):
-    """Load LLM with speed-optimized settings for MX 450"""
+def load_llm():
+    """Load LLM using Gemini wrapper"""
     try:
-        return Llama(
-            model_path=MODEL_PATH,
-            n_ctx=_ctx_size,
-            n_gpu_layers=N_GPU_LAYERS,
-            n_threads=N_THREADS,
-            n_batch=_batch_size,
-            use_mlock=True,
-            use_mmap=True,
-            verbose=False,
-        )
-    except Exception:
-        # Silently fall back to CPU mode
-        return Llama(
-            model_path=MODEL_PATH,
-            n_ctx=N_CTX,
-            n_gpu_layers=0,
-            n_threads=N_THREADS,
-            n_batch=N_BATCH,
-            use_mmap=True,
-            verbose=False,
-        )
+        return GeminiLLM(model_name=GEMINI_MODEL_NAME)
+    except Exception as e:
+        st.error(f"Failed to load Gemini: {e}")
+        return None
 
 
 @st.cache_resource(show_spinner="Loading embedding model...")

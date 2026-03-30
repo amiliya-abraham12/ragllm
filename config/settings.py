@@ -11,7 +11,7 @@ _PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 # ============================
 # MODEL PATHS
 # ============================
-MODEL_PATH =r"D:\assist\ragllm\models\mistral-7b-instruct-v0.2.Q4_K_M.gguf" #os.path.join(_PROJECT_ROOT, "models", "mistral-7b-instruct-v0.2.Q4_K_M.gguf")
+GEMINI_MODEL_NAME = "gemini-2.5-flash"
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 
 # Legacy alias (for backward compatibility)
@@ -43,17 +43,10 @@ CANDIDATE_MULTIPLIER = 2        # Fetch top_k * 2 candidates
 # ============================
 # LLM SETTINGS (BALANCED for MX 450)
 # ============================
-N_CTX = 2048              # Larger context for new prompt template
-N_GPU_LAYERS = 35         # Offload ALL layers to GPU (llama.cpp auto-limits if VRAM full)
-N_THREADS = 8             # Match physical CPU cores
-N_BATCH = 512             # Larger batch = better GPU utilization during prompt eval
 MAX_TOKENS = 512          # Allow detailed point-by-point answers
 TEMPERATURE = 0.0         # Greedy = fastest + most deterministic
 TOP_P = 1.0               # Disable nucleus sampling for speed
 REPEAT_PENALTY = 1.0      # Disable for speed
-
-# For CPU-only mode (if GPU issues occur)
-N_GPU_LAYERS_CPU = 0
 
 # ============================
 # CHAT SETTINGS (SPEED OPTIMIZED)

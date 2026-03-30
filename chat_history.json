@@ -1,5 +1,28 @@
 [
   {
+    "id": "20260330172052",
+    "date": "2026-03-30",
+    "title": "What is the attendance policy?",
+    "messages": [
+      {
+        "question": "What is the attendance policy?",
+        "answer": "The attendance policy is as follows:\n\n**1. Expected and Permitted Attendance**\n*   Students are expected to attain 100% attendance for all courses.\n*   Under unavoidable circumstances, students are permitted to take leave, provided that the total leave of absence does not exceed 25% of the academic contact hours for a course.\n\n**2. Mandatory Minimum Attendance**\n*   A minimum of 75% attendance is mandatory to be eligible to appear for the end semester examination.\n\n**3. Attendance Relaxations**\n*   **Menstrual Leave:** A 2% relaxation in attendance shall be granted to students as menstrual leave, reducing the required attendance percentage to 73% for each course.\n*   **Students with Disabilities (PWD):** A 5% relaxation in attendance shall be granted to students with disabilities (PWD).\n*   **Duty Leave:** Principals are authorized to grant attendance relaxation (duty leave) to students representing the college and Zone in officially sponsored events.\n\n**4. Attendance Requirement Relaxation (Condonation)**\n*   **Eligibility for Relaxation:**\n    *   In exceptional cases, such as medical reasons or personal emergencies, the Principal may grant permission for condonation of attendance.\n    *   This is applicable if a student's attendance is less than 75% but greater than or equal to 60%.\n    *   This relaxation applies to one or more courses registered in the semester.\n*   **Record Keeping:** The Principal shall keep all records leading to this decision on attendance for verification by Academic Auditors/University officials.\n*   **Applicability Limit:** This provision is applicable only for any two semesters during the normal programme duration.\n*   **Condonation Fee:** Students shall pay a fee, as fixed by the university, for each course to avail the attendance condonation option.\n\n**5. Communication of Attendance Status**\n*   The students shall be informed about their attendance status periodically by the colleges so that they can be cautioned to make up any shortage.\n\n[Source: [KTU-Regulations.pdf, Page 47, B. Tech. Regulation, 2024 APJ Abdul Kalam Technological University 29 However, the following relaxat], [KTU-Regulations.pdf, Page 40, B. Tech. Regulation, 2024 APJ Abdul Kalam Technological University 22 ii. The SFA/FA shall ensure th]]"
+      },
+      {
+        "question": "what are the sections of bioinformatics?",
+        "answer": "This information is not available in the official university documents."
+      },
+      {
+        "question": "what are the sections on bioinformatics",
+        "answer": "This information is not available in the official university documents."
+      },
+      {
+        "question": "bioinformatics",
+        "answer": "Here is the information regarding Bioinformatics:\n\n**Section 4: Bioinformatics**\n\n*   **Basics of Bioinformatics:**\n    *   DNA sequencing\n    *   Genome project\n    *   Various types of databases:\n        *   Sequence databases\n        *   Structural databases\n*   **Sequence Analysis:**\n    *   Bimolecular sequence file formats\n    *   Sequence alignment:\n        *   Scoring matrices\n        *   Pair wise and multiple sequence alignment\n        *   Local and global alignment\n        *   BLAST\n    *   Molecular phylogeny:\n        *   Basic concept of Phylogenic tree construction\n    *   DNA sequence annotation\n    *   Tools for sequence comparison and analysis\n*   **Structural Genomics:**\n    *   Gene Structure\n    *   Sequence analysis\n    *   Gene prediction software\n*   **Functional Genomics:**\n    *   Gene finder\n    *   Genetic mapping\n    *   Linkage analysis\n    *   Genetic maps\n*   **Sequence Analysis of Proteins:**\n    *   Hierarchies of protein structure\n    *   Protein 3D structure prediction\n    *   Visualization tools\n*   **Other Concepts:**\n    *   Introduction to homology modeling\n    *   Computer-Aided Drug Design (CADD) in Drug discovery\n    *   Docking & Simulation software\n    *   Post-translational modification\n    *   Molecular interaction studies:\n        *   Basic concepts on Protein-protein interaction\n        *   Protein-nucleic acid interaction\n        *   Protein-ligand interaction\n\n[Source: [KTU-RESEARCH5-1066-2025.pdf, Page 16, Section 3: Chemical Engineering Fundamentals Concepts of Solution Chemistry- normality, molarity, mo]]"
+      }
+    ]
+  },
+  {
     "id": "20260307103656",
     "date": "2026-03-07",
     "title": "Category of students shall not be eligible for int...",
