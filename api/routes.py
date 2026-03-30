@@ -12,7 +12,8 @@ from typing import List
 from fastapi import APIRouter, Request, UploadFile, File, HTTPException  # type: ignore
 
 # Fix import path so backend/config imports work
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, PROJECT_ROOT)
 
 from api.models import (  # type: ignore
     QueryRequest,
@@ -94,15 +95,17 @@ def ask_question(body: QueryRequest, request: Request):
 
     start = time.time()
 
-    # Run retrieval for source metadata
-    retriever = HybridRetriever(
-        embedder=embedder,
-        collection=collection,
-        min_relevance=0.35,
-        keyword_boost=0.30,
-        use_reranker=False,
-        use_bm25_rerank=True,
-    )
+    # Run retrieval 
+    retriever = getattr(request.app.state, "retriever", None)
+    if retriever is None:
+        retriever = HybridRetriever(
+            embedder=embedder,
+            collection=collection,
+            min_relevance=0.35,
+            keyword_boost=0.30,
+            use_reranker=False,
+            use_bm25_rerank=True,
+        )
     results = retriever.retrieve(body.question, top_k=body.top_k)
 
     # Build source info for the response
@@ -126,12 +129,45 @@ def ask_question(body: QueryRequest, request: Request):
         embedder=embedder,
         collection=collection,
         chat_history=chat_history,
+        retriever=retriever,
         max_history=0,
         max_tokens=body.max_tokens,
         temperature=body.temperature,
         top_k=body.top_k,
         use_reranker=False,
     )
+
+    # Log to UI history so the Chat UI displays it
+    try:
+        import json
+        from datetime import datetime
+        history_file = os.path.join(PROJECT_ROOT, "chat_history.json")
+        convos = []
+        if os.path.exists(history_file):
+            with open(history_file, "r", encoding="utf-8") as f:
+                convos = json.load(f)
+        
+        today = datetime.now().strftime("%Y-%m-%d")
+        api_convo = next((c for c in convos if c.get("title") == "API Queries" and c.get("date") == today), None)
+        if not api_convo:
+            api_convo = {
+                "id": f"api_{datetime.now().strftime('%Y%m%d%H%M%S')}",
+                "date": today,
+                "title": "API Queries",
+                "messages": []
+            }
+            convos.insert(0, api_convo)
+            
+        msg = {"question": body.question, "answer": answer}
+        if results:
+            msg["top_context"] = f"**Top Retrieved Context**: {results[0].to_citation()}\\n\\n{results[0].text}"
+            
+        api_convo["messages"].append(msg)
+        
+        with open(history_file, "w", encoding="utf-8") as f:
+            json.dump(convos, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        print(f"Failed to log API query to chat history: {e}")
 
     # Calculate grounding confidence
     context_text, _ = build_context(results)

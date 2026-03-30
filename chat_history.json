@@ -1,5 +1,44 @@
 [
   {
+    "id": "20260330183642",
+    "date": "2026-03-30",
+    "title": "What are the eligibility criteria for inter-colleg...",
+    "messages": [
+      {
+        "question": "What are the eligibility criteria for inter-college transfer?",
+        "answer": "The document specifies the conditions under which the University facilitates the transfer of students from one affiliated institution or college to another. These conditions are:\n\n*   **Extraordinary Circumstances:** The transfer can be facilitated in the event of extraordinary circumstances, which include:\n    *   Health issues\n    *   Closure of a college\n    *   Closure of a branch\n    *   Withdrawal of recognition/affiliation by AICTE or the University\n*   **Discipline/Branch Requirement:** The transfer must be to an affiliated institution or college offering the same discipline/branch.\n*   **Timing:** Such transfers can be facilitated at any time during the continuation of the programme.\n\nThe document does not explicitly specify other eligibility criteria for students to initiate or apply for an inter-college transfer outside of these university-facilitated circumstances.\n\n[Source: [KTU-Regulations.pdf, Page 83, B. Tech. Regulation, 2024 APJ Abdul Kalam Technological University 65 R 21.3 Submission of Inter-Uni], [KTU-Regulations.pdf, Page 82, B. Tech. Regulation, 2024 APJ Abdul Kalam Technological University 64 In the event of extraordinary ]]"
+      }
+    ]
+  },
+  {
+    "id": "api_20260330182844",
+    "date": "2026-03-30",
+    "title": "API Queries",
+    "messages": [
+      {
+        "question": "What is the attendance policy?",
+        "answer": "Unable to process your question. Please try rephrasing. (Error: Gemini API Error: 429 You exceeded your current qu)",
+        "top_context": "**Top Retrieved Context**: [data\\B.Techregulation.pdf, Page 10]\\n\\nStudents shall have to rejoin on the first working day of the same semester on which \nhe/she had started availing the break of study.   \n \n8.Attendance \nR8.1 Students are expected to attain 100% attendance for all courses. However, under \nunavoidable circumstances they are permitted to avail leave. Total leave of absence \nshall not exceed 25% of the academic contact hours for a course and 75% attendance is \nmandatory for registering to the end semester examination. \nOn medical ground the college Principal can relax the minimum attendance \nrequirement to 60%, to write the end semester examination.  This is permitted for one \nor more courses registered in the semester. Principal shall keep all records which led to \nhis decision on attendance, for verification by the Academic Auditors/ University \nofficials. This  provision  is  applicable  only  to  any  two  semesters  during  the  entire  \nprogram period.  \n In case of prolonged illness, break of study is permitted as per R7.1."
+      },
+      {
+        "question": "What is the attendance policy?",
+        "answer": "Unable to process your question. Please try rephrasing. (Error: Gemini API Error: 429 You exceeded your current qu)",
+        "top_context": "**Top Retrieved Context**: [data\\B.Techregulation.pdf, Page 10]\\n\\nStudents shall have to rejoin on the first working day of the same semester on which \nhe/she had started availing the break of study.   \n \n8.Attendance \nR8.1 Students are expected to attain 100% attendance for all courses. However, under \nunavoidable circumstances they are permitted to avail leave. Total leave of absence \nshall not exceed 25% of the academic contact hours for a course and 75% attendance is \nmandatory for registering to the end semester examination. \nOn medical ground the college Principal can relax the minimum attendance \nrequirement to 60%, to write the end semester examination.  This is permitted for one \nor more courses registered in the semester. Principal shall keep all records which led to \nhis decision on attendance, for verification by the Academic Auditors/ University \nofficials. This  provision  is  applicable  only  to  any  two  semesters  during  the  entire  \nprogram period.  \n In case of prolonged illness, break of study is permitted as per R7.1."
+      }
+    ]
+  },
+  {
+    "id": "20260330182815",
+    "date": "2026-03-30",
+    "title": "What are the library rules?",
+    "messages": [
+      {
+        "question": "What are the library rules?",
+        "answer": "Unable to process your question. Please try rephrasing. (Error: Gemini API Error: 403 Your API key was reported as)"
+      }
+    ]
+  },
+  {
     "id": "20260330172052",
     "date": "2026-03-30",
     "title": "What is the attendance policy?",
@@ -19,6 +58,42 @@
       {
         "question": "bioinformatics",
         "answer": "Here is the information regarding Bioinformatics:\n\n**Section 4: Bioinformatics**\n\n*   **Basics of Bioinformatics:**\n    *   DNA sequencing\n    *   Genome project\n    *   Various types of databases:\n        *   Sequence databases\n        *   Structural databases\n*   **Sequence Analysis:**\n    *   Bimolecular sequence file formats\n    *   Sequence alignment:\n        *   Scoring matrices\n        *   Pair wise and multiple sequence alignment\n        *   Local and global alignment\n        *   BLAST\n    *   Molecular phylogeny:\n        *   Basic concept of Phylogenic tree construction\n    *   DNA sequence annotation\n    *   Tools for sequence comparison and analysis\n*   **Structural Genomics:**\n    *   Gene Structure\n    *   Sequence analysis\n    *   Gene prediction software\n*   **Functional Genomics:**\n    *   Gene finder\n    *   Genetic mapping\n    *   Linkage analysis\n    *   Genetic maps\n*   **Sequence Analysis of Proteins:**\n    *   Hierarchies of protein structure\n    *   Protein 3D structure prediction\n    *   Visualization tools\n*   **Other Concepts:**\n    *   Introduction to homology modeling\n    *   Computer-Aided Drug Design (CADD) in Drug discovery\n    *   Docking & Simulation software\n    *   Post-translational modification\n    *   Molecular interaction studies:\n        *   Basic concepts on Protein-protein interaction\n        *   Protein-nucleic acid interaction\n        *   Protein-ligand interaction\n\n[Source: [KTU-RESEARCH5-1066-2025.pdf, Page 16, Section 3: Chemical Engineering Fundamentals Concepts of Solution Chemistry- normality, molarity, mo]]"
+      },
+      {
+        "question": "what are the sections on bioinformatics",
+        "answer": "This information is not available in the official university documents."
+      },
+      {
+        "question": "attendence",
+        "answer": "Unable to process your question. Please try rephrasing. (Error: Gemini API Error: 403 Your API key was reported as)"
+      },
+      {
+        "question": "aa",
+        "answer": "This information is not available in the official university documents."
+      },
+      {
+        "question": "attendence",
+        "answer": "Unable to process your question. Please try rephrasing. (Error: Gemini API Error: 403 Your API key was reported as)"
+      },
+      {
+        "question": "what are the sections on bioinformatics",
+        "answer": "Unable to process your question. Please try rephrasing. (Error: Gemini API Error: 403 Your API key was reported as)"
+      },
+      {
+        "question": "what are the sections on bioinformatics",
+        "answer": "Unable to process your question. Please try rephrasing. (Error: Gemini API Error: 403 Your API key was reported as)"
+      },
+      {
+        "question": "what are the sections on bioinformatics",
+        "answer": "Unable to process your question. Please try rephrasing. (Error: Gemini API Error: 403 Your API key was reported as)"
+      },
+      {
+        "question": "what are the sections on bioinformatics",
+        "answer": "Unable to process your question. Please try rephrasing. (Error: Gemini API Error: 403 Your API key was reported as)"
+      },
+      {
+        "question": "What are the rules of attendance shortage?",
+        "answer": "Unable to process your question. Please try rephrasing. (Error: Gemini API Error: 403 Your API key was reported as)"
       }
     ]
   },

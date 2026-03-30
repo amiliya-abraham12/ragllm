@@ -19,7 +19,7 @@ class GeminiLLM:
     """
 
     def __init__(self, model_name: str = "gemini-2.5-flash", api_key: str | None = None):
-        key = "AIzaSyACuOqmThr8k7dIekDNJJH2OVWALT4ibb8"
+        key = "" 
         if not key:
             raise ValueError(
                 "GEMINI_API_KEY not set. "

@@ -679,6 +679,10 @@ else:
                 st.warning(msg["answer"])
             else:
                 st.markdown(msg["answer"])
+            
+            if "top_context" in msg:
+                with st.expander("Show Ranked Retrieval Output"):
+                    st.markdown(msg["top_context"])
             # Feedback buttons for past messages
             msg_key = f"hist_{idx}"
             if msg_key in st.session_state.rated_messages:

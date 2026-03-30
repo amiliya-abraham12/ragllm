@@ -43,6 +43,16 @@ async def lifespan(app: FastAPI):
     print("🚀 GeminiRAG Assist API — Starting up...")
     print("=" * 50)
 
+    # --- Load FAISS Retriever ---
+    print("\n📦 Loading FAISS Retriever (Langchain + FAISS)...")
+    try:
+        from backend.retrieval_new import LangChainFAISSRetriever  # type: ignore
+        app.state.retriever = LangChainFAISSRetriever(device="cpu")
+        print("   ✅ FAISS Retriever loaded")
+    except Exception as e:
+        print(f"   ❌ FAISS Retriever failed: {e}")
+        app.state.retriever = None
+
     # --- Load Embedder ---
     print("\n📦 Loading sentence embedder...")
     try:
@@ -89,6 +99,7 @@ async def lifespan(app: FastAPI):
     app.state.llm = None
     app.state.embedder = None
     app.state.collection = None
+    app.state.retriever = None
 
 
 # ============================

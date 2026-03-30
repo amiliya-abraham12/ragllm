@@ -201,9 +201,10 @@ def build_context(results: List[RetrievalResult], max_chars: int = 1500) -> Tupl
 def ask(
     query: str,
     llm,
-    embedder,
-    collection,
-    chat_history: List[Tuple[str, str]],
+    embedder=None,
+    collection=None,
+    chat_history: Optional[List[Tuple[str, str]]] = None,
+    retriever=None,
     max_history: int = 2,
     max_tokens: int = 200,
     temperature: float = 0.1,
@@ -229,15 +230,19 @@ def ask(
         Generated answer string
     """
     
-    # Step 1: Retrieve more documents with BM25 reranking
-    retriever = HybridRetriever(
-        embedder=embedder,
-        collection=collection,
-        min_relevance=0.35,      # Lower to catch more candidates
-        keyword_boost=0.30,      # Higher keyword boost
-        use_reranker=use_reranker,
-        use_bm25_rerank=True     # Fast BM25 reranking
-    )
+    if chat_history is None:
+        chat_history = []
+        
+    # Step 1: Retrieve more documents
+    if retriever is None:
+        retriever = HybridRetriever(
+            embedder=embedder,
+            collection=collection,
+            min_relevance=0.35,
+            keyword_boost=0.30,
+            use_reranker=use_reranker,
+            use_bm25_rerank=True
+        )
     
     # Fetch more candidates - correct answer might be ranked lower
     results = retriever.retrieve(query, top_k=max(top_k + 3, 6))
@@ -325,8 +330,9 @@ def ask(
 def ask_simple(
     query: str,
     llm,
-    embedder,
-    collection
+    embedder=None,
+    collection=None,
+    retriever=None
 ) -> str:
     """
     Simplified ask function with sensible defaults.
@@ -337,6 +343,7 @@ def ask_simple(
         embedder=embedder,
         collection=collection,
         chat_history=[],
+        retriever=retriever,
         max_history=0,
         max_tokens=150,
         temperature=0.1,
