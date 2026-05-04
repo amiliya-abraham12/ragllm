@@ -6,5 +6,53 @@
     "answer": "1. Students admitted under NRI/PIO quota.\n2. Students admitted under TFW Scheme.\n3. Students admitted in any supernumerary seats.\n4. Students admitted in autonomous colleges.\n5. Govt. of India Nominees.\n6. Management Quota students in Aided colleges.\n7. Management Quota students in private Self Financing Colleges.\n8. Lateral Entry students.\n9. Students admitted under any other category which are ineligible as per the conditions for admission prescribed by Govt. of Kerala/Govt. of India.\n\nThe document explicitly lists these categories of students as ineligible for inter college transfer.\n\n[Source: [Attachment3.pdf, Page 1], [KTU-Regulations.pdf, Page 12]]",
     "rating": "positive",
     "comment": ""
+  },
+  {
+    "id": "20260502120336445951",
+    "timestamp": "2026-05-02T12:03:36.445951",
+    "question": "How is CGPA calculated?",
+    "answer": "1. CGPA (Cumulative Grade Point Average) is calculated using the following formula:\n   CGPA = ∑ (Ci' × GPi) / ∑ Ci'\n2. Here, 'm' is the total number of courses considered in the CGPA calculation.\n3. Ci' represents the credit assigned for the ith course, and GPi is the grade point for that course.\n4. The summation is done for all courses specified in the curriculum up to the semester for which the CGPA is being calculated.\n5. The calculation includes all grades, including 'F', 'Ab', and 'FE' grade courses.\n6. For students admitted under the lateral entry scheme, credits for the first and second semester courses are not included in the calculation of CGPA.\n7. The Consolidated Grade Card and Official Transcript for B. Tech. lateral entry students shall include the statement: \"A total of 44 credits have been awarded based on the credits earned from the qualifying Diploma/Degree Programme.\"\n8. Courses that are not considered for the computation of SGPA and CGPA shall be explicitly listed in the curriculum.\n9. Exclusion of Minor, Honours, and Challenge Examinations.\n10. Courses pursued towards a ‘Minor’ or ‘Honours’ specialization, as well as credits earned through challenge examinations, shall not be included in the calculation of SGPA or CGPA for the main B. Tech. programme.\n11. GPA and CGPA are calculated to two decimal places.\n12. The percentage equivalent of a CGPA is calculated by multiplying the CGPA by 10.\n\nTherefore, the CGPA is calculated by summing up the product of credits and grade points for all the courses registered up to a specific semester and then dividing the sum by the total credits registered up to that semester. The calculation includes all grades, but for lateral entry students, the credits for the first and second semesters are not considered. Certain courses may not be included in the calculation of SGPA and CGPA as per the curriculum.\n\n[Source: [KTU-Regulations.pdf, Page 58, B. Tech. Regulation, 2024 APJ Abdul Kalam Technological University 40 CGPA Calculation: CGPA = ∑ (𝑪𝒊], [KTU-Regulations.pdf, Page 57, B. Tech. Regulation, 2024 APJ Abdul Kalam Technological University 39 8 S8 OE/PE One OE and One Leve]]",
+    "rating": "positive",
+    "comment": ""
+  },
+  {
+    "id": "20260502120340935872",
+    "timestamp": "2026-05-02T12:03:40.935872",
+    "question": "What are the eligibility criteria for inter-college transfer?",
+    "answer": "This information is not available in the official university documents.",
+    "rating": "negative",
+    "comment": ""
+  },
+  {
+    "id": "20260502143512736286",
+    "timestamp": "2026-05-02T14:35:12.736286",
+    "question": "What is the Comprehensive Course Viva in Semester 8?",
+    "answer": "1. The Comprehensive Course Viva Voce is a mandatory evaluation in Semester 8.\n2. It consists of a viva voce examination worth 50 marks.\n3. The viva voce is based on the core subjects studied from the third to the eighth semester.\n4. The examination is conducted by the same three-member committee assigned for the final project phase II evaluation.\n5. The pass minimum for this course is 25 marks.\n6. The course should be mapped with a faculty, and classes are arranged for practicing questions based on the core courses listed in the curriculum.\n7. The mark obtained in the Comprehensive Course Viva Voce is treated as internal and should be uploaded along with the internal marks of other courses.\n\n[Source: [KTU-Regulations.pdf, Page 29, B. Tech. Regulation, 2024 APJ Abdul Kalam Technological University 11 solidifies foundational concep], [CSE Curriculum-B.Tech 2019 Scheme.pdf, Page 18]]",
+    "rating": "positive",
+    "comment": ""
+  },
+  {
+    "id": "20260503123113082061",
+    "timestamp": "2026-05-03T12:31:13.082061",
+    "question": "How many students form a Mini Project group?",
+    "answer": "Students in a Mini Project group can be 3 or 4 in number. (From the document: \"Student Groups with 3 or 4 members\")\n\n[Source: [KTU-Regulations.pdf, Page 28, B. Tech. Regulation, 2024 APJ Abdul Kalam Technological University 10 chosen specialization/branch 7], [CSE Curriculum-B.Tech 2019 Scheme.pdf, Page 12]]",
+    "rating": "positive",
+    "comment": ""
+  },
+  {
+    "id": "20260503133225792979",
+    "timestamp": "2026-05-03T13:32:25.792979",
+    "question": "What is the Comprehensive Course Viva in Semester 8?",
+    "answer": "Unable to process your question. Please try rephrasing. (Error: 'NoneType' object is not callable)",
+    "rating": "negative",
+    "comment": ""
+  },
+  {
+    "id": "20260503144452838612",
+    "timestamp": "2026-05-03T14:44:52.838612",
+    "question": "Activity Credits Requirement for B. Tech. Students ",
+    "answer": "1. CGPA and Percentage Equivalence:\n   - A CGPA of 8.95 for B. Tech. students is equivalent to 89.5% [KTU-Regulations.pdf, Page 59, B. Tech. Regulation, 2024]\n\n2. Activity Credits Requirement:\n   - Students must earn 3 credits by participating in co-curricular and extra-curricular activities. [KTU-Regulations.pdf, Page 59, B. Tech. Regulation, 2024, R 10.1]\n   - Regular B. Tech. students must earn a minimum of 120 activity points, with at least 40 points from each of the three designated groups. [KTU-Regulations.pdf, Page 59, B. Tech. Regulation, 2024, R 10.1 iii]\n   - B. Tech. lateral entry students must earn a minimum of 90 activity points, with at least 30 points from each designated group. [KTU-Regulations.pdf, Page 59, B. Tech. Regulation, 2024, R 10.1 iii]\n   - Students must maintain a file containing documentary proof of their activities, attested by the Senior Faculty Advisor or Faculty Advisor. [KTU-Regulations.pdf, Page 59, B. Tech. Regulation, 2024, R 10.1 iv]\n\n3. Activity Points for Inter-University and Scheme Migration Students:\n   - These students must earn a minimum of 5 points per semester in each specified group during their period of study at KTU. [KTU-Regulations.pdf, Page 59, B. Tech. Regulation, 2024, R 10.2]\n\nThe document does not explicitly specify the number or names of the designated groups for activity credits.\n\n[Source: [KTU-Regulations.pdf, Page 59, B. Tech. Regulation, 2024 APJ Abdul Kalam Technological University 41 A CGPA of 8.95 is considered e]]",
+    "rating": "positive",
+    "comment": ""
   }
 ]

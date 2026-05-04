@@ -25,26 +25,20 @@ os.environ["OTEL_SDK_DISABLED"] = "true"
 os.environ["HF_HUB_OFFLINE"] = "1"
 os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
-# -------------------------------
-# CUDA DLL path fix for llama-cpp-python
-# -------------------------------
-import glob
-_cuda_dll_dirs = glob.glob(
-    os.path.join(sys.prefix, "Lib", "site-packages", "nvidia", "*", "bin")
-)
-if _cuda_dll_dirs:
-    os.environ["PATH"] = ";".join(_cuda_dll_dirs) + ";" + os.environ.get("PATH", "")
+# (No CUDA DLL patch needed — llama-cpp-python handles its own CUDA linking)
 
 # -------------------------------
 # Imports
 # -------------------------------
 import streamlit as st  # type: ignore[import]
-from backend.gemini_wrapper import GeminiLLM
+from backend.llm_wrapper import LocalLlamaLLM  # type: ignore[import]
 from sentence_transformers import SentenceTransformer  # type: ignore[import]
 import chromadb  # type: ignore[import]
 
 from config.settings import (  # type: ignore[import]
-    GEMINI_MODEL_NAME,
+    LOCAL_MODEL_PATH,
+    N_GPU_LAYERS,
+    N_CTX,
     EMBEDDING_MODEL,
     DB_PATH,
     MAX_TOKENS,
@@ -534,8 +528,8 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown(
-        "<small style='color:var(--text-muted)'>GeminiRAG Assist v1.0<br>"
-        "Powered by Gemini + ChromaDB</small>",
+        "<small style='color:var(--text-muted)'>LlamaRAG Assist v1.0<br>"
+        "Powered by Mistral 7B + ChromaDB</small>",
         unsafe_allow_html=True,
     )
 
@@ -567,21 +561,24 @@ if st.session_state.get("messages"):
 # -------------------------------
 # Cached Model Loaders
 # -------------------------------
-@st.cache_resource(show_spinner="Loading AI model...")
+@st.cache_resource(show_spinner="🧠 Loading local AI model (may take ~30s)...")
 def load_llm():
-    """Load LLM using Gemini wrapper"""
+    """Load local Mistral 7B model via llama-cpp-python (fully offline)"""
     try:
-        return GeminiLLM(model_name=GEMINI_MODEL_NAME)
+        return LocalLlamaLLM(
+            model_path=LOCAL_MODEL_PATH,
+            n_gpu_layers=N_GPU_LAYERS,
+            n_ctx=N_CTX,
+        )
     except Exception as e:
-        st.error(f"Failed to load Gemini: {e}")
+        st.error(f"Failed to load local model: {e}")
         return None
 
 
 @st.cache_resource(show_spinner="Loading embedding model...")
 def load_embedder():
-    """Load sentence transformer for embeddings (offline mode, GPU accelerated)"""
-    import torch  # type: ignore[import]
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    """Load sentence transformer for embeddings (offline mode, CPU to save VRAM for LLM)"""
+    device = "cpu"  # Force CPU — MX450 2GB VRAM is reserved for Mistral GPU layers
     try:
         model = SentenceTransformer(EMBEDDING_MODEL, local_files_only=True, device=device)
     except Exception:
@@ -607,6 +604,18 @@ with st.spinner("Initializing AI system..."):
     llm = load_llm()
     embedder = load_embedder()
     collection = load_collection()
+
+# Guard: if model failed to load, show clear error with retry option
+if llm is None:
+    st.error(
+        "⚠️ **Local AI model failed to load.** "
+        "This may be due to a missing model file, insufficient memory, "
+        "or a cached failure from a previous session."
+    )
+    if st.button("🔄 Retry Model Load", key="retry_model_btn"):
+        load_llm.clear()  # Clear the @st.cache_resource cache
+        st.rerun()
+    st.stop()  # Prevent the rest of the UI from rendering with a broken model
 
 doc_count = collection.count()
 if doc_count == 0:
@@ -657,7 +666,6 @@ if not st.session_state.messages:
         "How do I apply for re-evaluation?",
         "What are the eligibility criteria for inter-college transfer?",
         "What is the grading system?",
-        "What are the library rules?",
         "How to apply for a leave of absence?",
     ]
     # Display in 2 columns

@@ -23,7 +23,9 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, PROJECT_ROOT)
 
 from config.settings import (  # type: ignore
-    GEMINI_MODEL_NAME,
+    LOCAL_MODEL_PATH,
+    N_GPU_LAYERS,
+    N_CTX,
     EMBEDDING_MODEL,
     DB_PATH,
 )
@@ -40,7 +42,7 @@ async def lifespan(app: FastAPI):
     and release them on shutdown.
     """
     print("=" * 50)
-    print("🚀 GeminiRAG Assist API — Starting up...")
+    print(" LlamaRAG Assist API — Starting up...")
     print("=" * 50)
 
     # --- Load FAISS Retriever ---
@@ -79,11 +81,15 @@ async def lifespan(app: FastAPI):
         app.state.collection = None
 
     # --- Load LLM ---
-    print("\n📦 Loading LLM (this may take a minute)...")
+    print("\n📦 Loading local LLM (Mistral 7B GGUF)...")
     try:
-        from backend.gemini_wrapper import GeminiLLM  # type: ignore
-        app.state.llm = GeminiLLM(model_name="gemini-2.0-flash")
-        print("   ✅ LLM loaded: Gemini API (gemini-2.0-flash)")
+        from backend.llm_wrapper import LocalLlamaLLM  # type: ignore
+        app.state.llm = LocalLlamaLLM(
+            model_path=LOCAL_MODEL_PATH,
+            n_gpu_layers=N_GPU_LAYERS,
+            n_ctx=N_CTX,
+        )
+        print("   ✅ LLM loaded: Mistral 7B (fully offline, partial GPU offload)")
     except Exception as e:
         print(f"   ❌ LLM failed: {e}")
         app.state.llm = None
@@ -95,7 +101,7 @@ async def lifespan(app: FastAPI):
     yield  # ← App runs here
 
     # --- Shutdown ---
-    print("\n🛑 Shutting down GeminiRAG Assist API...")
+    print("\n🛑 Shutting down LlamaRAG Assist API...")
     app.state.llm = None
     app.state.embedder = None
     app.state.collection = None
@@ -187,7 +193,7 @@ LANDING_PAGE_HTML = """<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeminiRAG Assist API</title>
+    <title>LlamaRAG Assist API</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -297,7 +303,7 @@ LANDING_PAGE_HTML = """<!DOCTYPE html>
         <!-- Hero -->
         <div class="hero">
             <div class="hero-badge"><span class="dot"></span> API Online</div>
-            <h1>GeminiRAG Assist API</h1>
+            <h1>LlamaRAG Assist API</h1>
             <p>Production-ready REST API for AI-powered university regulation Q&A. Ask questions, get grounded answers with source citations and confidence scoring.</p>
             <div class="actions">
                 <a href="/docs" class="btn btn-primary">📖 Interactive Docs</a>
@@ -392,7 +398,7 @@ curl -X POST http://localhost:8000/api/ask \\
 
         <!-- Footer -->
         <div class="footer">
-            GeminiRAG Assist API v1.0.0 &bull; Powered by Gemini + ChromaDB &bull; Built with FastAPI
+            LlamaRAG Assist API v1.0.0 &bull; Powered by Mistral 7B + ChromaDB &bull; Built with FastAPI
         </div>
     </div>
 
@@ -425,10 +431,10 @@ curl -X POST http://localhost:8000/api/ask \\
 # ============================
 
 app = FastAPI(
-    title="GeminiRAG Assist API",
+    title="LlamaRAG Assist API",
     description=(
         "## 🎓 AI-Powered University Regulation Assistant\n\n"
-        "Production REST API for the GeminiRAG Assist chatbot. "
+        "Production REST API for the LlamaRAG Assist chatbot. "
         "Ask questions about university policies and get accurate, "
         "source-cited answers powered by RAG (Retrieval-Augmented Generation).\n\n"
         "### ✨ Features\n"

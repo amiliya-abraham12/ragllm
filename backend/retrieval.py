@@ -73,7 +73,7 @@ class HybridRetriever:
             self._load_reranker()
     
     def _load_reranker(self):
-        """Load cross-encoder model for re-ranking"""
+        """Load cross-encoder model for re-ranking (forced to CPU to save VRAM)"""
         if not HAS_NUMPY:
             print("⚠️ Numpy not found, disabling re-ranker")
             self.use_reranker = False
@@ -81,12 +81,15 @@ class HybridRetriever:
 
         try:
             from sentence_transformers import CrossEncoder  # type: ignore
+            import torch  # type: ignore[import]
             # Light cross-encoder suitable for limited VRAM
+            # Force CPU — MX450 2GB VRAM is reserved for Mistral GPU layers
             self.reranker = CrossEncoder(
                 'cross-encoder/ms-marco-MiniLM-L-6-v2',
-                max_length=512
+                max_length=512,
+                device=torch.device("cpu")
             )
-            print("✅ Cross-encoder loaded for re-ranking")
+            print("✅ Cross-encoder loaded for re-ranking (CPU)")
         except ImportError:
             print("⚠️ sentence_transformers not found, disabling re-ranker")
             self.use_reranker = False

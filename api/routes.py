@@ -40,7 +40,7 @@ from backend.chat import ask, validate_grounding, build_context  # type: ignore
 from backend.retrieval import HybridRetriever  # type: ignore
 from backend.feedback import log_feedback, get_feedback_summary  # type: ignore
 
-router = APIRouter(prefix="/api", tags=["GeminiRAG Assist API"])
+router = APIRouter(prefix="/api", tags=["LlamaRAG Assist API"])
 
 
 # ============================

@@ -18,6 +18,12 @@ except ImportError:
     HAS_CHROMADB = False
 
 try:
+    import fitz  # PyMuPDF — better text extraction and page accuracy  # type: ignore[import]
+    HAS_PYMUPDF = True
+except ImportError:
+    HAS_PYMUPDF = False
+
+try:
     import pypdf  # type: ignore[import]
     HAS_PYPDF = True
 except ImportError:
@@ -128,11 +134,39 @@ def clean_text(text):
 
 
 def load_pdf_text(file_path):
-    """Extract text from PDF with page tracking and proper cleaning"""
-    if not HAS_PYPDF:
-        print(f"⚠️ pypdf not found. Cannot read {file_path}")
+    """Extract text from PDF with page tracking and proper cleaning.
+    
+    Uses PyMuPDF (fitz) for better text extraction accuracy.
+    Falls back to pypdf if PyMuPDF is not installed.
+    """
+    if HAS_PYMUPDF:
+        return _load_pdf_pymupdf(file_path)
+    elif HAS_PYPDF:
+        return _load_pdf_pypdf(file_path)
+    else:
+        print(f"⚠️ No PDF library found. Cannot read {file_path}")
         return []
-        
+
+
+def _load_pdf_pymupdf(file_path):
+    """Extract text using PyMuPDF (fitz) — better accuracy for page numbers"""
+    doc = fitz.open(file_path)
+    pages = []
+    for i, page in enumerate(doc):
+        page_text = page.get_text("text")  # "text" mode preserves layout better
+        if page_text:
+            cleaned = clean_text(page_text)
+            if cleaned:
+                pages.append({
+                    "page_num": i + 1,
+                    "text": cleaned
+                })
+    doc.close()
+    return pages
+
+
+def _load_pdf_pypdf(file_path):
+    """Fallback: Extract text using pypdf"""
     reader = pypdf.PdfReader(file_path)
     pages = []
     for i, page in enumerate(reader.pages):

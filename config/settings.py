@@ -11,11 +11,24 @@ _PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 # ============================
 # MODEL PATHS
 # ============================
-GEMINI_MODEL_NAME = "gemini-2.5-flash"
+
+# Local LLM (Mistral 7B GGUF — fully offline)
+LOCAL_MODEL_PATH = os.path.join(
+    _PROJECT_ROOT, "models", "mistral-7b-instruct-v0.2.Q4_K_M.gguf"
+)
+
+# GPU offload layers — MX450 has 2 GB VRAM; keep low to avoid VRAM overflow
+N_GPU_LAYERS = 10
+
+# Context window (tokens)
+N_CTX = 2048
+
+# Sentence embedding model (unchanged)
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 
-# Legacy alias (for backward compatibility)
+# Legacy aliases (for backward compatibility)
 MODEL_NAME = EMBEDDING_MODEL
+GEMINI_MODEL_NAME = ""  # Kept to avoid ImportError in any stale imports
 
 # ============================
 # VECTOR DATABASE
@@ -26,19 +39,19 @@ DATA_PATH = os.path.join(_PROJECT_ROOT, "data")
 # ============================
 # DOCUMENT PROCESSING
 # ============================
-CHUNK_SIZE = 800          # Larger chunks to keep procedures together
+CHUNK_SIZE = 500          # Smaller chunks to fit within 2048-token context window
 CHUNK_OVERLAP = 200       # 25% overlap for context continuity
 MIN_CHUNK_SIZE = 50       # Lower minimum to capture short but important admin sections
 
 # ============================
 # RETRIEVAL SETTINGS (ACCURACY + SPEED BALANCED)
 # ============================
-TOP_K = 6                       # More chunks = better recall for specific queries
-MIN_RELEVANCE_SCORE = 0.35      # Lower threshold for broader recall
-USE_RERANKER = False            # Cross-encoder disabled (too slow)
-USE_BM25_RERANK = True          # NEW: Fast BM25 reranking for accuracy
+TOP_K = 3                       # Fewer chunks to avoid exceeding context window
+MIN_RELEVANCE_SCORE = 0.50      # Higher threshold to filter noisy/irrelevant chunks
+USE_RERANKER = True             # Cross-encoder enabled for higher accuracy
+USE_BM25_RERANK = False         # Disabled — cross-encoder supersedes BM25
 KEYWORD_BOOST = 0.20            # Keep keyword boost for exact matches
-CANDIDATE_MULTIPLIER = 2        # Fetch top_k * 2 candidates
+CANDIDATE_MULTIPLIER = 1        # Fetch top_k * 1 candidates (limits cross-encoder workload)
 
 # ============================
 # LLM SETTINGS (BALANCED for MX 450)
@@ -52,7 +65,7 @@ REPEAT_PENALTY = 1.0      # Disable for speed
 # CHAT SETTINGS (SPEED OPTIMIZED)
 # ============================
 MAX_HISTORY = 2           # Rolling chat history turns
-MAX_CONTEXT_CHARS = 2500  # More context for detailed answers
+MAX_CONTEXT_CHARS = 1500  # Reduced to prevent 2048-token context window overflow
 
 # ============================
 # ANTI-HALLUCINATION

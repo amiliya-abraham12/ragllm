@@ -9,9 +9,19 @@ RAG Chat Module with Anti-Hallucination Safeguards
 from typing import List, Tuple, Optional, Any, Union
 
 try:
-    from config.settings import MAX_CONTEXT_CHARS  # type: ignore[import]
+    from config.settings import (  # type: ignore[import]
+        MAX_CONTEXT_CHARS,
+        MIN_RELEVANCE_SCORE,
+        KEYWORD_BOOST,
+        USE_BM25_RERANK,
+        CANDIDATE_MULTIPLIER,
+    )
 except ImportError:
     MAX_CONTEXT_CHARS = 1500
+    MIN_RELEVANCE_SCORE = 0.50
+    KEYWORD_BOOST = 0.20
+    USE_BM25_RERANK = False
+    CANDIDATE_MULTIPLIER = 1
 
 try:
     from backend.retrieval import HybridRetriever, RetrievalResult  # type: ignore[import]
@@ -69,12 +79,24 @@ HOW TO FORM ANSWERS
 • Be THOROUGH and COMPLETE — include all relevant details from the documents.
 
 -----------------------------------
+CITATION RULES (MANDATORY)
+-----------------------------------
+
+• Each document excerpt below is labeled with its source name and page number.
+• For EVERY fact or rule you state, you MUST append the exact source citation
+  in this format: [Source Name, Page X]
+• If multiple excerpts support the same fact, cite all of them.
+• Do NOT invent or guess citations — ONLY use the labels shown in the excerpts.
+• If you cannot determine the source, do NOT cite anything for that fact.
+
+-----------------------------------
 USER-FRIENDLY BEHAVIOR
 -----------------------------------
 
 • Be polite and respectful.
 • Use clear, simple language.
-• Do NOT mention "context", "chunks", or "retrieval".
+• Do NOT mention internal system terms like "context", "chunks", or "retrieval".
+• You MAY reference document names and page numbers as citations.
 • Do NOT blame the user for missing information.
 
 -----------------------------------
@@ -161,6 +183,7 @@ def validate_query_coverage(answer: str, query: str) -> float:
 def build_context(results: List[RetrievalResult], max_chars: int = 1500) -> Tuple[str, str]:
     """
     Build context string from retrieval results.
+    Each chunk is prefixed with its source label so the LLM can cite it.
     Returns (context_text, citations)
     """
     if not results:
@@ -171,21 +194,26 @@ def build_context(results: List[RetrievalResult], max_chars: int = 1500) -> Tupl
     acc_chars: int = 0
     
     for i, result in enumerate(results):
-        # Add chunk without document labels (cleaner for LLM)
-        chunk_text = result.text
+        # Build source label for the LLM to reference in citations
+        source_label = result.to_citation()  # e.g. "[Student Manual.pdf, Page 12]"
+        labeled_chunk = f"--- {source_label} ---\n{result.text}"
         
-        if int(acc_chars) + int(len(chunk_text)) > int(max_chars):
+        if int(acc_chars) + int(len(labeled_chunk)) > int(max_chars):
             # Truncate this chunk to fit
             remaining = int(max_chars) - int(acc_chars) - 50  # Buffer
             if remaining > 100:
-                chunk_text = chunk_text[:remaining] + "..."
-                context_parts.append(chunk_text)
-                citations.append(result.to_citation())
+                # Keep the source label intact, truncate only the text
+                max_text_len = remaining - len(source_label) - 10
+                if max_text_len > 50:
+                    truncated_text = result.text[:max_text_len] + "..."
+                    labeled_chunk = f"--- {source_label} ---\n{truncated_text}"
+                    context_parts.append(labeled_chunk)
+                    citations.append(result.to_citation())
             break
         
-        context_parts.append(chunk_text)
+        context_parts.append(labeled_chunk)
         citations.append(result.to_citation())
-        _new_acc: int = int(len(chunk_text)) + 10
+        _new_acc: int = int(len(labeled_chunk)) + 10
         acc_chars = int(acc_chars) + _new_acc  # type: ignore[assignment]  # Account for newlines
     
     context = "\n\n".join(context_parts)
@@ -233,19 +261,20 @@ def ask(
     if chat_history is None:
         chat_history = []
         
-    # Step 1: Retrieve more documents
+    # Step 1: Retrieve documents
     if retriever is None:
         retriever = HybridRetriever(
             embedder=embedder,
             collection=collection,
-            min_relevance=0.35,
-            keyword_boost=0.30,
+            min_relevance=MIN_RELEVANCE_SCORE,
+            keyword_boost=KEYWORD_BOOST,
             use_reranker=use_reranker,
-            use_bm25_rerank=True
+            use_bm25_rerank=USE_BM25_RERANK
         )
     
-    # Fetch more candidates - correct answer might be ranked lower
-    results = retriever.retrieve(query, top_k=max(top_k + 3, 6))
+    # Fetch candidates using configured multiplier
+    n_candidates = max(top_k * CANDIDATE_MULTIPLIER, top_k)
+    results = retriever.retrieve(query, top_k=n_candidates)
     
     # Step 2: Check if we found relevant documents
     if not results:
